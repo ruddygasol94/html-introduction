@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <style>
+      table {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+      table, th, td {
+        border: 1px solid black;
+        background-color: #f5f5dc;
+      }
+
+      .form-cell {
+        display: flex;
+        flex-direction: column;
+        margin-left: 7px;
+        margin-right: 7px;
+      }
+
+      .tabla-totales {
+        border: 1px solid red;
+      }
+
+      .tabla-totales th {
+        border: 1px solid red;
+      }
+
+      .tabla-totales td {
+        border: 1px solid red;
+      }
+
+      .fondo-azul {
+        background-color: cadetblue;
+      }
+
+      .letra-blanca {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Alumnos</h1>
+      <div style="display: flex;">
+        <div class="form-cell">
+          <label>Nombre</label>
+          <input type="text" />
+        </div>
+        <div class="form-cell">
+          <label>Apellido</label>
+          <input type="text" />
+        </div>
+        <div class="form-cell">
+          <label>Estatus</label>
+          <select>
+            <option>Activo</option>
+            <option>Inactivo</option>
+          </select>
+        </div>
+        <div class="form-cell">
+          <label>&nbsp;</label>
+          <button>Buscar</button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <table style="width: 80%;">
+        <tr>
+          <th>Nombre</th>
+          <th colspan="2">Apellidos</th>
+          <th colspan="2" class="fondo-azul letra-blanca">Dirección</th>
+          <th colspan="2">Teléfono</th>
+          <th>Estatus</th>
+          <th>Acción</th>
+        </tr>
+        <tr>
+          <td>Ruddy</td>
+          <td>García</td>
+          <td>Soltero</td>
+          <td class="fondo-azul">Av Siempre viva</td>
+          <td class="fondo-azul">1240</td>
+          <td>(55)</td>
+          <td>56 2908 3232</td>
+          <td>Activo</td>
+          <td>Editar</td>
+        </tr>
+        <tr>
+          <td>Luis</td>
+          <td>Pérez</td>
+          <td>Reyes</td>
+          <td class="fondo-azul">Av Uno</td>
+          <td class="fondo-azul">722</td>
+          <td>(55)</td>
+          <td>56 97323 232</td>
+          <td>Inactivo</td>
+          <td>Editar</td>
+        </tr>
+      </table>
+      <table class="tabla-totales">
+        <tr>
+          <th>Alumnos</th>
+        </tr>
+        <tr>
+          <td>2</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
