@@ -111,25 +111,25 @@
         <div style="display: flex; margin-bottom: 10px;">
           <div class="form-cell">
             <label>Nombre</label>
-            <input type="text" />
+            <input id="txtNombre" type="text" />
           </div>
           <div class="form-cell">
             <label>Apellido</label>
-            <input type="text" />
+            <input id="txtApellido" type="text" />
           </div>
         </div>
         <div style="display: flex; margin-bottom: 10px;">
           <div class="form-cell" style="flex: 2;">
             <label>Dirección</label>
-            <input type="text" />
+            <input id="txtDireccion" type="text" />
           </div>
           <div class="form-cell">
             <label>Teléfono</label>
-            <input type="tel" />
+            <input id="txtTelefono" type="tel" />
           </div>
           <div class="form-cell">
             <label>Estatus</label>
-            <select>
+            <select id="cbEstatus">
               <option>Activo</option>
               <option>Inactivo</option>
             </select>
@@ -137,8 +137,14 @@
         </div>
         <div style="display: flex; align-items: center; justify-content: center;">
           <input type="submit" value="Guardar">
+          <button type="button" onclick="guardar();">Click me</button>
         </div>
       </form>
     </div>
+    <script>
+      function guardar() {
+        console.log('Nombre: ' + document.getElementById('txtNombre').value);
+      }
+    </script>
   </body>
 </html>
