@@ -11,5 +11,14 @@ Temas
 - HTML, CSS
 - JS
 
-- Lado Cliente
-- Lado Servidor
+- Lado Cliente (HTML, CSS, JS)
+  - Maquetacion (HTML)
+  - Estilos (CSS)
+  - Funcionalidad (Valiciones y manejo de datos)
+  JS
+     document.getElementById
+     document.createElement
+     document.createTextElement
+     document.appendChild
+
+- Lado Servidor (Php, python, JS, C)
