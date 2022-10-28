@@ -8,14 +8,68 @@
     <link rel="icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/favicon.ico">
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <label class="form-label">Nombre</label>
+                  <input class="form-control" id="txtNombre" type="text" onchange="detectaInput(this)" />
+                </div>
+                <div class="col">
+                  <label class="form-label">Apellido</label>
+                  <input class="form-control" id="txtApellido" type="text" onchange="detectaInput(this)" />
+                </div>
+                <div class="col">
+                  <label class="form-label">Email</label>
+                  <input class="form-control" id="txtEmail" name="email" type="text" onchange="detectaInput(this)" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <label class="form-label">Dirección</label>
+                  <input class="form-control" id="txtDireccion" type="text" onchange="detectaInput(this)" />
+                </div>
+                <div class="col">
+                  <label class="form-label">Teléfono</label>
+                  <input class="form-control" id="txtTelefono" type="tel" onchange="detectaInput(this)" />
+                </div>
+                <div class="col">
+                  <label class="form-label">Estatus</label>
+                  <select class="form-select" id="cbEstatus">
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="guardar()">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1>List of Participants</h1>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Create Record
+    </button>
     <table class="table">
       <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">First</th>
           <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">Phone</th>
         </tr>
       </thead>
       <tbody id="tBodyPeople">
@@ -23,64 +77,38 @@
           <th scope="row">1</th>
           <td>Mark</td>
           <td>Otto</td>
-          <td>@mdo</td>
+          <td>555623658</td>
         </tr>
         <tr>
           <th scope="row">2</th>
           <td>Jacob</td>
           <td>Thornton</td>
-          <td>@fat</td>
+          <td>55698895235</td>
         </tr>
         <tr>
           <th scope="row">3</th>
           <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
+          <td>555698512</td>
         </tr>
       </tbody>
     </table>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <label class="form-label">Nombre</label>
-          <input class="form-control" id="txtNombre" type="text" onchange="detectaInput(this)" />
-        </div>
-        <div class="col">
-          <label class="form-label">Apellido</label>
-          <input class="form-control" id="txtApellido" type="text" onchange="detectaInput(this)" />
-        </div>
-        <div class="col">
-          <label class="form-label">Email</label>
-          <input class="form-control" id="txtEmail" name="email" type="text" onchange="detectaInput(this)" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <label class="form-label">Dirección</label>
-          <input class="form-control" id="txtDireccion" type="text" onchange="detectaInput(this)" />
-        </div>
-        <div class="col">
-          <label class="form-label">Teléfono</label>
-          <input class="form-control" id="txtTelefono" type="tel" onchange="detectaInput(this)" />
-        </div>
-        <div class="col">
-          <label class="form-label">Estatus</label>
-          <select class="form-select" id="cbEstatus">
-            <option>Activo</option>
-            <option>Inactivo</option>
-          </select>
-        </div>
-      </div>
-      <div class="row text-center mt-3">
-        <div class="col">
-          <button type="button" class="btn btn-primary" onclick="guardar()">Guardar</button>
-        </div>
-        <div class="col">
-          <button type="button" class="btn btn-danger">Limpiar</button>
-        </div>
-      </div>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script>
+      const myModal = document.getElementById('exampleModal');
+
+      myModal.addEventListener('shown.bs.modal', () => {
+        const inputName = document.getElementById('txtNombre');
+        const inputLastName = document.getElementById('txtApellido');
+        const inputEmail = document.getElementById('txtEmail');
+        const inputAddress = document.getElementById('txtDireccion');
+        const inputPhone = document.getElementById('txtTelefono');
+
+        inputName.value = '';
+        inputLastName.value = '';
+        inputEmail.value = '';
+        inputAddress.value = '';
+        inputPhone.value = '';
+      });
       function detectaInput(input) {
         //console.log(input.id, input.value);
       }
@@ -104,7 +132,29 @@
           email: inputEmail.value,
           phhone: inputPhone.value,
         };
-        console.log(persona);
+        
+        const oCell1 = document.createElement('th');
+        oCell1.appendChild(
+          document.createTextNode(
+            document.getElementById('tBodyPeople').children.length + 1
+          )
+        );
+        const oCell2 = document.createElement('td');
+        oCell2.appendChild(document.createTextNode(persona.name));
+
+        const oCell3 = document.createElement('td');
+        oCell3.appendChild(document.createTextNode(persona.last_name));
+
+        const oCell4 = document.createElement('td');
+        oCell4.appendChild(document.createTextNode(persona.phhone));
+
+        oRow = document.createElement('tr');
+        oRow.appendChild(oCell1);
+        oRow.appendChild(oCell2);
+        oRow.appendChild(oCell3);
+        oRow.appendChild(oCell4);
+
+        document.getElementById('tBodyPeople').appendChild(oRow);
       }
     </script>
   </body>
